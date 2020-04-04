@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     var randomDiceIndex2 : Int = 0
     @IBOutlet var Dice1: UIImageView!
     @IBOutlet var dice2: UIImageView!
+    let diceArray = ["dice1","dice2","dice3","dice4","dice4","dice5","dice6"]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        self.backgroundImage.backgroundColor = UIColor(named: "#00000")
     }
     
     @IBAction func RollButton(_ sender: Any) {
@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         self.randomDiceIndex1 = Int(arc4random_uniform(6))
         self.randomDiceIndex2 = Int(arc4random_uniform(6))
         print(self.randomDiceIndex2)
+   /*
+         OLD CODE FOR CHANGING THE IMAGE OF THE DICE USING SWITCH STATEMENT.
         switch randomDiceIndex1 {
         case 0:
             self.Dice1.image = UIImage(named: "dice1")
@@ -77,8 +79,10 @@ class ViewController: UIViewController {
         default:
             break
         }
-        print(self.randomDiceIndex1 )
-        
+ */
+        // NEW CODE TO CHANGE DICE IMAGE USING ARRAY.
+        self.Dice1.image = UIImage(named: diceArray[randomDiceIndex1])
+        self.dice2.image = UIImage(named: diceArray[randomDiceIndex2])
     }
     
 }
